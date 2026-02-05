@@ -1,0 +1,13 @@
+# Coding Style Check List
+- [ ] Code follows program language conventions
+- [ ] No linter warnings
+- [ ] Functions are small (<50 lines)
+- [ ] Files are focused (<800 lines)
+- [ ] No deep nesting (>4 levels)
+- [ ] All errors handled with context
+- [ ] No debugging statements
+- [ ] No hardcoded values (use constants or config)
+- [ ] Interfaces defined at consumer, not provider
+- [ ] Context passed through call chain
+- [ ] Race conditions checked
+- [ ] Exported types and functions documented
