@@ -5,7 +5,7 @@ if [ $# -ge 1 ]; then
   PROJECT_DIR="$1"
 else
   PROJECT_DIR="$(pwd)"
-  read -r -p "Install into $PROJECT_DIR? [Y/n] " answer
+  read -r -p "Install into $PROJECT_DIR? [Y/n] " answer </dev/tty
   if [[ "$answer" =~ ^[Nn] ]]; then
     echo "Aborted."
     exit 0
