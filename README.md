@@ -4,17 +4,16 @@ Reusable Claude Code agents, rules, commands, and skills.
 
 ## Install
 
-Run this one-liner to install into your project:
+Run in your project directory:
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/tiltwind/.claude/main/scripts/install.sh)
+```
+
+Or specify a target project:
 
 ```bash
 bash <(curl -fsSL https://raw.githubusercontent.com/tiltwind/.claude/main/scripts/install.sh) /path/to/your-project
-```
-
-Or clone and run locally:
-
-```bash
-git clone https://github.com/tiltwind/.claude.git ~/.claude/claude-template
-bash ~/.claude/claude-template/scripts/install.sh /path/to/your-project
 ```
 
 Re-run the same command to update — existing symlinks are refreshed and non-symlink files are never overwritten.

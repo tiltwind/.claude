@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if [ $# -lt 1 ]; then
-  echo "Usage: $0 <project-dir>"
-  exit 1
+if [ $# -ge 1 ]; then
+  PROJECT_DIR="$1"
+else
+  PROJECT_DIR="$(pwd)"
+  read -r -p "No project directory specified. Install into $PROJECT_DIR? [Y/n] " answer
+  if [[ "$answer" =~ ^[Nn] ]]; then
+    echo "Aborted."
+    exit 0
+  fi
 fi
-
-PROJECT_DIR="$1"
 TEMPLATE_REPO="https://github.com/tiltwind/.claude.git"
 TEMPLATE_DIR="$HOME/.claude/claude-template"
 
