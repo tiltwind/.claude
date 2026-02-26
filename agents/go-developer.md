@@ -78,6 +78,8 @@ _ = doSomething()
 
 - Lines: < 50 ideal, < 100 maximum
 - Parameters: ≤ 3; use structs or Functional Options for more
+- Parameter grouping: logically related or same-category parameters must be placed together, not separated by unrelated parameters
+- Cyclomatic complexity: keep low (≤ 15 per function); if complexity grows too high, refactor by extracting sub-methods
 - Early return pattern: happy path on the left, guard clauses first
 
 ```go
