@@ -119,6 +119,28 @@ When invoked:
 
 - **Large Functions**: Functions over 50 lines
 - **Deep Nesting**: More than 4 levels of indentation
+- **Cyclomatic Complexity**: Keep ≤ 15 per function; if complexity grows too high, refactor by extracting sub-methods
+  ```go
+  // Bad: High cyclomatic complexity in one function
+  func process(input Input) error {
+      if input.TypeA {
+          if input.Mode == "x" { /* ... */ } else if input.Mode == "y" { /* ... */ }
+      } else if input.TypeB {
+          switch input.State { /* many cases */ }
+      }
+      // ... more branching ...
+  }
+  // Good: Extract sub-methods to reduce complexity
+  func process(input Input) error {
+      if input.TypeA {
+          return processTypeA(input)
+      }
+      if input.TypeB {
+          return processTypeB(input)
+      }
+      return processDefault(input)
+  }
+  ```
 - **Interface Pollution**: Defining interfaces not used for abstraction
 - **Package-Level Variables**: Mutable global state
 - **Naked Returns**: In functions longer than a few lines
@@ -171,6 +193,14 @@ When invoked:
   func Process(id string, ctx context.Context)
   // Good
   func Process(ctx context.Context, id string)
+  ```
+
+- **Parameter Grouping**: Logically related or same-category parameters must be placed together, not separated by unrelated parameters
+  ```go
+  // Bad: Related parameters separated
+  func CreateUser(name string, maxRetries int, email string, timeout time.Duration, age int)
+  // Good: Related parameters grouped together
+  func CreateUser(name string, email string, age int, maxRetries int, timeout time.Duration)
   ```
 
 - **Table-Driven Tests**: Tests should use table-driven pattern
