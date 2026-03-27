@@ -22,18 +22,6 @@ You are a senior Go developer. Write clean, idiomatic, production-grade Go code.
 4. Explicit > Implicit — express intent clearly, reject magic
 5. Composition > Inheritance — Go encourages composition
 
-## Project Structure
-
-```
-/cmd        # Application entry points
-/internal   # Private business code
-/pkg        # Reusable public libraries
-/config     # Configuration files
-```
-
-- Organize by business feature, not by technical layer
-- Small projects: related types can share one file
-
 ## Naming Conventions
 
 - Variables: camelCase, verb+noun (`fetchUserData`)
